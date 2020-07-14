@@ -11,8 +11,9 @@ namespace bookingComAutomationSolution
     {
         Driver chromedriver = new Driver();
         HomePage hp = new HomePage();
+        SearchResultsPage srp = new SearchResultsPage();
         [Test]
-        public void checkLabels()
+        public void TC_000001_CheckRatingsFunctionality()
         {
             chromedriver
                 .startApplication()
@@ -20,6 +21,9 @@ namespace bookingComAutomationSolution
             hp
                 //.SubmitForm()
                 .SubmitForm(Destination.Fuerteventura);
+            srp
+                .CheckStarRatingSection();
+            //need to click each checkbox now
             chromedriver
                 .closeBrowser();
                 //.SubmitForm()

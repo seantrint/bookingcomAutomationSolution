@@ -6,6 +6,7 @@ namespace bookingComAutomationSolution.TestData
 {
     public static class Scripts
     {
+        //HomePage
         public const string ClickButton = "document.getElementById('{0}').click();";
         public const string FillInField = "window.document.getElementById('{0}').value = '{1}';";
         public const string SubmitForm = "document.getElementById('{0}').submit();";

@@ -44,5 +44,13 @@ namespace bookingComAutomationSolution
             waitUntilPageLoaded();
             return this;
         }
+        public Driver AssertText(string xpath, string label)
+        {
+            waitUntilPageLoaded();
+            String actualString = driver.FindElement(By.XPath(xpath)).Text;
+            Assert.AreEqual(actualString, label);
+
+            return this;
+        }
     }
 }

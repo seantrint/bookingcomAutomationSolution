@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using bookingComAutomationSolution.TestData;
-using bookingComAutomationSolution.Pages.PageFunctions;
 namespace bookingComAutomationSolution.Pages
 {
     //this should have methods for all the different actions available on the home page (although all we care about in this scenario is searching)
@@ -25,16 +24,16 @@ namespace bookingComAutomationSolution.Pages
         }
         public HomePage ClickCheckIn()
         {
-            pf.ClickButtonByClass(Scripts.ClickCheckIn, PageElementIds.checkInClassName);
+            pf.CustomScript(Scripts.ClickCheckIn, PageElementIds.CheckInClassName);
             Thread.Sleep(500); //checking page ready flag will not work for dynamic inner page elements
             return this;
         }
-        public HomePage ClickNextPreviousCalendarButton(string button = PageElementIds.calendarNextButton, int timesToPress = 1)
+        public HomePage ClickNextPreviousCalendarButton(string button = PageElementIds.CalendarNextButton, int timesToPress = 1)
         {
 
             for (int i = 0; i<= timesToPress; i++)
             {
-                pf.ClickButtonByClass(Scripts.ClickCalendarNextPrevious, button);
+                pf.CustomScript(Scripts.ClickCalendarNextPrevious, button);
             }
             
             Thread.Sleep(500); //checking page ready flag will not work for dynamic inner page elements
@@ -42,8 +41,8 @@ namespace bookingComAutomationSolution.Pages
         }
         public HomePage PickDates(string checkInDate = Scripts.ClickCheckInDate, string checkOutDate = Scripts.ClickCheckOutDate)
         {
-            pf.ClickButtonByClass(checkInDate, PageElementIds.pickableDate)
-                .ClickButtonByClass(checkOutDate, PageElementIds.pickableDate);
+            pf.CustomScript(checkInDate, PageElementIds.PickableDate)
+                .CustomScript(checkOutDate, PageElementIds.PickableDate);
             return this;
         }
         public HomePage SelectDates(string checkInDate = null)
@@ -57,10 +56,6 @@ namespace bookingComAutomationSolution.Pages
                 .PickDates();
             return this;
         }
-        //public HomePage SelectPeopleAndRooms()
-        //{
-        //    return this;
-        //}
         public HomePage SubmitForm(string dataToFill = Destination.Limerick, string checkInDate = null)
         {
             FillInSearchField(dataToFill)

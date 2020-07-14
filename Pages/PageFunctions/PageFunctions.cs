@@ -9,23 +9,30 @@ namespace bookingComAutomationSolution.Pages.PageFunctions
     public class PageFunctions
     {
         Driver driverclass = new Driver();
-        
+
         //this class should have generic methods for performing functions against page elements
         //clicking buttons, filling in fields etc.
         //methods for many different pages should call these generic methods specifying different parameters
+        public PageFunctions CustomScript(string script, string idOrClass)
+        {
+            //for any action
+            driverclass.ExecuteScript(script, idOrClass);
+            return this;
+        }
+        public PageFunctions AssertText(string xpath, string label)
+        {
+            driverclass.AssertText(xpath, label);
+            return this;
+        }
         public PageFunctions FillInField(string fieldId, string dataToFill)
         {
+            //for specific action
             driverclass.ExecuteScript(Scripts.FillInField, fieldId, dataToFill);
             return this;
         }
         public PageFunctions ClickButtonById(string buttonId)
         {
             driverclass.ExecuteScript(Scripts.ClickButton, buttonId);
-            return this;
-        }
-        public PageFunctions ClickButtonByClass(string script, string buttonClass)
-        {
-            driverclass.ExecuteScript(script, buttonClass);
             return this;
         }
         public PageFunctions SubmitForm(string formId)
