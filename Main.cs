@@ -19,17 +19,31 @@ namespace bookingComAutomationSolution
                 .startApplication()
                 .MaximizeWindow();
             hp
-                //.SubmitForm()
                 .SubmitForm(Destination.Fuerteventura);
             srp
-                .CheckStarRatingSection();
-            //need to click each checkbox now
+                .CheckFilters(
+                new[]
+                    {
+                        PageElementIds.OneStarXPathLabel,
+                        PageElementIds.TwoStarXPathLabel,
+                        PageElementIds.ThreeStarXPathLabel,
+                        PageElementIds.FourStarXPathLabel,
+                        PageElementIds.FiveStarXPathLabel
+                    },
+                new[]
+                    {
+                        Filters.OneStarLabel,
+                        Filters.TwoStarLabel,
+                        Filters.ThreeStarLabel,
+                        Filters.FourStarLabel,
+                        Filters.FiveStarLabel,
+                        Filters.UnratedLabel
+                    }
+                )
+                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.OneStarCheckboxId)
+                .CheckFirstSearchGridResult(PageElementIds.FirstOneStarHotelXPath, SearchGrid.OneStarResult);
             chromedriver
                 .closeBrowser();
-                //.SubmitForm()
-               // .closeBrowser();
-            //Driver.Driver.startBrowser();
-            //driver.Close();
         }
 
     }

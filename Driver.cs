@@ -44,7 +44,14 @@ namespace bookingComAutomationSolution
             waitUntilPageLoaded();
             return this;
         }
-        public Driver AssertText(string xpath, string label)
+        public Driver ExecuteScriptByInt(string script, int param1 = 0, int param2 = 0, int param3 = 0)
+        {
+            waitUntilPageLoaded();
+            ((IJavaScriptExecutor)driver).ExecuteScript(String.Format(script, param1, param2, param3));
+            waitUntilPageLoaded();
+            return this;
+        }
+        public Driver AssertTextByXPath(string xpath, string label)
         {
             waitUntilPageLoaded();
             String actualString = driver.FindElement(By.XPath(xpath)).Text;
