@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using bookingComAutomationSolution.Pages;
 
 namespace bookingComAutomationSolution
 {
@@ -8,14 +9,16 @@ namespace bookingComAutomationSolution
     public class Main
     {
         Driver chromedriver = new Driver();
-
+        HomePage hp = new HomePage();
         [Test]
         public void checkLabels()
         {
-            chromedriver.startApplication().MaximizeWindow();
-
-            chromedriver.closeBrowser();
-
+            chromedriver
+                .startApplication()
+                .MaximizeWindow()
+                .FillInField("ss", "Limerick, Limerick County, Ireland")
+                .ClickSubmitButton("frm")
+                .closeBrowser();
             //Driver.Driver.startBrowser();
             //driver.Close();
         }
