@@ -19,9 +19,9 @@ namespace bookingComAutomationSolution.Pages.PageFunctions
             driverclass.ExecuteScript(script, idOrClass);
             return this;
         }
-        public PageFunctions AssertText(string xpath, string label)
+        public PageFunctions AssertText(string xpath, string label, bool shouldBe = true)
         {
-            driverclass.AssertTextByXPath(xpath, label);
+            driverclass.AssertTextByXPath(xpath, label, shouldBe);
             return this;
         }
         public PageFunctions FillInField(string fieldId, string dataToFill)
@@ -43,6 +43,11 @@ namespace bookingComAutomationSolution.Pages.PageFunctions
         public PageFunctions SubmitForm(string formId)
         {
             driverclass.ExecuteScript(Scripts.SubmitForm, formId);
+            return this;
+        }
+        public PageFunctions ElementDoesNotExist(string xpath)
+        {
+            driverclass.ElementDoesNotExist(xpath);
             return this;
         }
     }

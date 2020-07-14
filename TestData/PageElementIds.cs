@@ -15,7 +15,9 @@ namespace bookingComAutomationSolution.TestData
         public const string PickableDate = "bui-calendar__date";
 
         //Search Results Page
-        public const string FirstOneStarHotelXPath = "/html/body/div[6]/div/div[3]/div[1]/div[1]/div[7]/div[3]/div[1]/div/div[1]/div[2]/div[1]/div[1]/div[1]/span/i/span";
+        public const string LowestPriceFirstButton = " sort_category   sort_price ";
+        public const string SelectedCheckBox = "filteroptions filter_selected";
+        public const string HotelStarRatingXPath = "/html/body/div[6]/div/div[3]/div[1]/div[1]/div[7]/div[3]/div[1]/div/div[1]/div[2]/div[1]/div[1]/div[1]/span/i/span";
         public const string StarRatingLabel = "filter_class";
         public const string StarRatingLabelXPath = "/html/body/div[6]/div/div[3]/div[1]/div[2]/div[1]/div[5]/form/fieldset/div[1]/div/div[5]/div[1]/h3";
         public const string OneStarXPathLabel = "/html/body/div[6]/div/div[3]/div[1]/div[2]/div[1]/div[5]/form/fieldset/div[1]/div/div[5]/div[2]/a[1]/label/div/span[1]";

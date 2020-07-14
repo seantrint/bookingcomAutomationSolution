@@ -51,12 +51,31 @@ namespace bookingComAutomationSolution
             waitUntilPageLoaded();
             return this;
         }
-        public Driver AssertTextByXPath(string xpath, string label)
+        public Driver AssertTextByXPath(string xpath, string label, bool shouldBe = true)
         {
             waitUntilPageLoaded();
             String actualString = driver.FindElement(By.XPath(xpath)).Text;
-            Assert.AreEqual(actualString, label);
-
+            if (!shouldBe)
+            {
+                //for negative testing
+                Assert.AreNotEqual(actualString, label);
+            }
+            else
+            {
+                Assert.AreEqual(actualString, label);
+            }
+            return this;
+        }
+        public Driver ElementDoesNotExist(string xpath)
+        {
+            try
+            {
+                driver.FindElement(By.XPath(xpath));
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
             return this;
         }
     }

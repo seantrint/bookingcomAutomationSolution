@@ -41,7 +41,21 @@ namespace bookingComAutomationSolution
                     }
                 )
                 .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.OneStarCheckboxId)
-                .CheckFirstSearchGridResult(PageElementIds.FirstOneStarHotelXPath, SearchGrid.OneStarResult);
+                .CheckFirstSearchGridResult(PageElementIds.HotelStarRatingXPath, SearchGrid.OneStarResult)
+                .UnClickFilter()
+                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.TwoStarCheckboxId)
+                .CheckFirstSearchGridResult(PageElementIds.HotelStarRatingXPath, SearchGrid.TwoStarHotel)
+                .UnClickFilter()
+                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.ThreeStarCheckboxId)
+                .CheckFirstSearchGridResult(PageElementIds.HotelStarRatingXPath, SearchGrid.ThreeStarResult)
+                .UnClickFilter()
+                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.FourStarCheckboxId)
+                .CheckFirstSearchGridResult(PageElementIds.HotelStarRatingXPath, SearchGrid.FourStarResult)
+                .UnClickFilter()
+                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.FiveStarCheckboxId)
+                .CheckFirstSearchGridResult(PageElementIds.HotelStarRatingXPath, SearchGrid.FiveStarHotel)
+                .UnClickFilter()
+                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.UnratedCheckboxId);
             chromedriver
                 .closeBrowser();
         }
