@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using bookingComAutomationSolution.TestData;
+
 namespace bookingComAutomationSolution.Pages.PageFunctions
 {
     public class PageFunctions
@@ -17,9 +18,14 @@ namespace bookingComAutomationSolution.Pages.PageFunctions
             driverclass.ExecuteScript(Scripts.FillInField, fieldId, dataToFill);
             return this;
         }
-        public PageFunctions ClickButton(string buttonId)
+        public PageFunctions ClickButtonById(string buttonId)
         {
             driverclass.ExecuteScript(Scripts.ClickButton, buttonId);
+            return this;
+        }
+        public PageFunctions ClickButtonByClass(string script, string buttonClass)
+        {
+            driverclass.ExecuteScript(script, buttonClass);
             return this;
         }
         public PageFunctions SubmitForm(string formId)

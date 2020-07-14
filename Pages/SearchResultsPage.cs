@@ -4,7 +4,7 @@ using System.Text;
 
 namespace bookingComAutomationSolution.Pages
 {
-    class SearchResultsPage
+    public class SearchResultsPage
     {
     }
 }

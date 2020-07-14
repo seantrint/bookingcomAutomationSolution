@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using bookingComAutomationSolution.Pages;
+using bookingComAutomationSolution.TestData;
 
 namespace bookingComAutomationSolution
 {
@@ -17,7 +18,8 @@ namespace bookingComAutomationSolution
                 .startApplication()
                 .MaximizeWindow();
             hp
-                .SubmitForm();
+                //.SubmitForm()
+                .SubmitForm(Destination.Fuerteventura);
             chromedriver
                 .closeBrowser();
                 //.SubmitForm()

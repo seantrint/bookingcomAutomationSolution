@@ -7,5 +7,6 @@ namespace bookingComAutomationSolution.TestData
     public static class Destination
     {
         public const string Limerick = "Limerick, Limerick County, Ireland";
+        public const string Fuerteventura = "Fuerteventura, Spain";
     }
 }
