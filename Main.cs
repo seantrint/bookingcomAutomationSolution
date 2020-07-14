@@ -15,10 +15,13 @@ namespace bookingComAutomationSolution
         {
             chromedriver
                 .startApplication()
-                .MaximizeWindow()
-                .FillInField("ss", "Limerick, Limerick County, Ireland")
-                .ClickSubmitButton("frm")
+                .MaximizeWindow();
+            hp
+                .SubmitForm();
+            chromedriver
                 .closeBrowser();
+                //.SubmitForm()
+               // .closeBrowser();
             //Driver.Driver.startBrowser();
             //driver.Close();
         }

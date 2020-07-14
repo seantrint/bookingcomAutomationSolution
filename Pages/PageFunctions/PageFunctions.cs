@@ -8,26 +8,29 @@ namespace bookingComAutomationSolution.Pages.PageFunctions
     public class PageFunctions
     {
         Driver driverclass = new Driver();
+        
         //this class should have generic methods for performing functions against page elements
         //clicking buttons, filling in fields etc.
         //methods for many different pages should call these generic methods specifying different parameters
         public PageFunctions FillInField(string fieldId, string dataToFill)
         {
-            //document.getElementById("ss").value = "Johnny Bravo";
-            driverclass.waitUntilPageLoaded();
-            ((IJavaScriptExecutor)driverclass.driver).ExecuteScript(String.Format("window.document.getElementById('{0}').value = '{1}';", fieldId, dataToFill));
+            string script = "window.document.getElementById('{0}').value = '{1}';";
+
+            driverclass.ExecuteScript(script, fieldId, dataToFill);
             return this;
         }
         public PageFunctions ClickButton(string buttonId)
         {
-            driverclass.waitUntilPageLoaded();
-            ((IJavaScriptExecutor)driverclass.driver).ExecuteScript(String.Format("document.getElementById({0}).click();", buttonId));
+            string script = "document.getElementById('{0}').click();";
+
+            driverclass.ExecuteScript(script, buttonId);
             return this;
         }
         public PageFunctions SubmitForm(string formId)
         {
-            driverclass.waitUntilPageLoaded();
-            ((IJavaScriptExecutor)driverclass.driver).ExecuteScript(String.Format("document.getElementById({0}).submit();", formId));
+            string script = "document.getElementById('{0}').submit();"; // get scripts from model file
+
+            driverclass.ExecuteScript(script, formId);
             return this;
         }
     }

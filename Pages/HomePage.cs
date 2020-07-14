@@ -15,7 +15,7 @@ namespace bookingComAutomationSolution.Pages
             pf.FillInField("ss",dataToFill);
             return this;
         }
-        public HomePage SubmitForm()
+        public HomePage ClickSubmitForm()
         {
             //button on home page does not have id
             //need to access id of the form and use submit()
@@ -31,10 +31,10 @@ namespace bookingComAutomationSolution.Pages
         {
             return this;
         }
-        public HomePage DefaultSearch(string dataToFill)
+        public HomePage SubmitForm(string dataToFill = "Limerick, Limerick County, Ireland")
         {
-            FillInSearchField(dataToFill);
-            SubmitForm();
+            FillInSearchField(dataToFill)
+            .ClickSubmitForm();
             return this;
         }
     }

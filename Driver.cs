@@ -11,7 +11,7 @@ namespace bookingComAutomationSolution
     public class Driver
     {
         string path = "C:/Users/Sean/Desktop/projects/testautomation/bookingComAutomationSolution/Lib";
-        public IWebDriver driver = new ChromeDriver();
+        public static IWebDriver driver = new ChromeDriver();
         public Driver MaximizeWindow()
         {
             driver.Manage().Window.Maximize();
@@ -37,24 +37,11 @@ namespace bookingComAutomationSolution
 
             return this;
         }
-        public Driver FillInField(string fieldId, string dataToFill)
-        {
-            //document.getElementById("ss").value = "Johnny Bravo";
-            waitUntilPageLoaded();
-            ((IJavaScriptExecutor)driver).ExecuteScript(String.Format("document.getElementById('{0}').value = '{1}';", fieldId, dataToFill));
-            return this;
-        }
-        public Driver SubmitForm(string formId, string fieldId, string dataToFill)
+        public Driver ExecuteScript(string script, string param1 = null, string param2 = null, string param3 = null)
         {
             waitUntilPageLoaded();
-            FillInField(fieldId, dataToFill);
-            ((IJavaScriptExecutor)driver).ExecuteScript(String.Format("document.getElementById('{0}').submit();", formId));
-            return this;
-        }
-        public Driver ClickSubmitButton(string formId)
-        {
+            ((IJavaScriptExecutor)driver).ExecuteScript(String.Format(script, param1, param2, param3));
             waitUntilPageLoaded();
-            ((IJavaScriptExecutor)driver).ExecuteScript(String.Format("document.getElementById('{0}').submit();", formId));
             return this;
         }
     }
