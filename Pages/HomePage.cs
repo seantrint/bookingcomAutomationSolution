@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using bookingComAutomationSolution.TestData;
 namespace bookingComAutomationSolution.Pages
 {
     //this should have methods for all the different actions available on the home page (although all we care about in this scenario is searching)
@@ -12,7 +13,7 @@ namespace bookingComAutomationSolution.Pages
         public HomePage FillInSearchField(string dataToFill)
         {
             //store this id in model and get it here
-            pf.FillInField("ss",dataToFill);
+            pf.FillInField(PageElementIds.HomePageDestinationFieldId, dataToFill);
             return this;
         }
         public HomePage ClickSubmitForm()
@@ -20,7 +21,7 @@ namespace bookingComAutomationSolution.Pages
             //button on home page does not have id
             //need to access id of the form and use submit()
             //store this id in model and get it here
-            pf.SubmitForm("frm");
+            pf.SubmitForm(PageElementIds.HomePageFormId);
             return this;
         }
         public HomePage SelectDates()
@@ -31,7 +32,7 @@ namespace bookingComAutomationSolution.Pages
         {
             return this;
         }
-        public HomePage SubmitForm(string dataToFill = "Limerick, Limerick County, Ireland")
+        public HomePage SubmitForm(string dataToFill = Destination.Limerick)
         {
             FillInSearchField(dataToFill)
             .ClickSubmitForm();

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using bookingComAutomationSolution.TestData;
 namespace bookingComAutomationSolution.Pages.PageFunctions
 {
     public class PageFunctions
@@ -14,23 +14,17 @@ namespace bookingComAutomationSolution.Pages.PageFunctions
         //methods for many different pages should call these generic methods specifying different parameters
         public PageFunctions FillInField(string fieldId, string dataToFill)
         {
-            string script = "window.document.getElementById('{0}').value = '{1}';";
-
-            driverclass.ExecuteScript(script, fieldId, dataToFill);
+            driverclass.ExecuteScript(Scripts.FillInField, fieldId, dataToFill);
             return this;
         }
         public PageFunctions ClickButton(string buttonId)
         {
-            string script = "document.getElementById('{0}').click();";
-
-            driverclass.ExecuteScript(script, buttonId);
+            driverclass.ExecuteScript(Scripts.ClickButton, buttonId);
             return this;
         }
         public PageFunctions SubmitForm(string formId)
         {
-            string script = "document.getElementById('{0}').submit();"; // get scripts from model file
-
-            driverclass.ExecuteScript(script, formId);
+            driverclass.ExecuteScript(Scripts.SubmitForm, formId);
             return this;
         }
     }
