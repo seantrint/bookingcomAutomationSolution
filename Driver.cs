@@ -12,7 +12,6 @@ namespace bookingComAutomationSolution
 {
     public class Driver
     {
-        string path = ConfigurationManager.AppSettings["ChromeDriver"];
         public static IWebDriver driver = new ChromeDriver();
         public Driver MaximizeWindow()
         {
@@ -46,7 +45,7 @@ namespace bookingComAutomationSolution
             while(i < 10)
             {
                 fieldExists = ExecuteScriptAndReturn(script, param1, param2, param3);
-                if (fieldExists == true)
+                if (fieldExists)
                 {
                     break;
                 }
