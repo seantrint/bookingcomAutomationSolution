@@ -19,6 +19,7 @@ namespace bookingComAutomationSolution.TestData
         public const string LowestPriceFirstButton = " sort_category   sort_price ";
         public const string SelectedCheckBox = "filteroptions filter_selected";
         public const string HotelStarRatingXPath = "/html/body/div[6]/div/div[3]/div[1]/div[1]/div[7]/div[3]/div[1]/div/div[1]/div[2]/div[1]/div[1]/div[1]/span/i/span";
+
         public const string StarRatingLabel = "filter_class";
         public const string StarRatingLabelXPath = "/html/body/div[6]/div/div[3]/div[1]/div[2]/div[1]/div[5]/form/fieldset/div[1]/div/div[5]/div[1]/h3";
         public const string FirstStarXPathLabel = "/html/body/div[6]/div/div[3]/div[1]/div[2]/div[1]/div[5]/form/fieldset/div[1]/div/div[5]/div[2]/a[1]/label/div/span[1]";
@@ -34,6 +35,11 @@ namespace bookingComAutomationSolution.TestData
         public const int FourthStarCheckboxId = 3;
         public const int FifthStarCheckboxId = 4;
         public const int UnratedCheckboxId = 5;
+
+        ///html/body/div[6]/div/div[3]/div[1]/div[2]/div[1]/div[5]/form/fieldset/div[1]/div/div[16]/div[2]/a[2]/label/div/span[1]
+        public const string SpaLabelXPath = "/html/body/div[6]/div/div[3]/div[1]/div[2]/div[1]/div[5]/form/fieldset/div[1]/div/div[9]/div[2]/a[2]/label/div/span[1]";
+        public const int FunThingsSectionId = 7;
+        public const int SpaCheckboxId = 1;
 
     }
 }

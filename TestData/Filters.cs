@@ -16,5 +16,7 @@ namespace bookingComAutomationSolution.TestData
         public const string FourStarLabel = "4 stars";
         public const string FiveStarLabel = "5 stars";
         public const string UnratedLabel = "Unrated";
+
+        public const string SpaLabel = "Spa";
     }
 }

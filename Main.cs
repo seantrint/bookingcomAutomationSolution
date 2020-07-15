@@ -96,24 +96,26 @@ namespace bookingComAutomationSolution
                 .startApplication()
                 .MaximizeWindow();
             hp
-                .SubmitForm(Destination.Limerick);
+                .SubmitForm(Destination.Fuerteventura);
             srp
-                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.SecondStarCheckboxId)
+                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.FourthStarCheckboxId)
                 .CheckFilterContains(PageElementIds.HotelStarRatingXPath, SearchGrid.FourStar, ignoreChars: new[] { "-" });
             chromedriver
                 .closeBrowser();
         }
         [Test]
-        public void TC_000006_CheckFiveStarRating()
+        public void TC_000006_CheckFiveStarRatingAndCheckSpa()
         {
             chromedriver
                 .startApplication()
                 .MaximizeWindow();
             hp
-                .SubmitForm(Destination.Fuerteventura);
+                .SubmitForm(Destination.Limerick);
             srp
-                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.FifthStarCheckboxId)
-                .CheckFilterContains(PageElementIds.HotelStarRatingXPath, SearchGrid.FiveStar, ignoreChars:new[] {"-"});
+                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.ThirdStarCheckboxId)
+                .CheckFilter(PageElementIds.SpaLabelXPath, Filters.SpaLabel)
+                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.FunThingsSectionId, PageElementIds.SpaCheckboxId)
+                .CheckFilterContains(PageElementIds.HotelStarRatingXPath, SearchGrid.FiveStar, ignoreChars: new[] { "-" });
             chromedriver
                 .closeBrowser();
         }
@@ -131,6 +133,5 @@ namespace bookingComAutomationSolution
             chromedriver
                 .closeBrowser();
         }
-
     }
 }
