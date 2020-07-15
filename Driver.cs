@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -41,13 +42,14 @@ namespace bookingComAutomationSolution
         {
             int i = 0;
             bool fieldExists = false;
-            while(i < 6000)
+            while(i < 10)
             {
                 fieldExists = ExecuteScriptAndReturn(script, param1, param2, param3);
                 if (fieldExists == true)
                 {
                     break;
                 }
+                Thread.Sleep(500);
                 i++;
             }
             return this;
