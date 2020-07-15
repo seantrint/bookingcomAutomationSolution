@@ -83,38 +83,32 @@ namespace bookingComAutomationSolution
             waitUntilPageLoaded();
             return this;
         }
-        public Driver AssertTextByXPath(string xpath, string label, bool shouldBe = true, string label2 = null)
+        public Driver AssertTextByXPath(string xpath, string label, bool shouldBe = true)
         {
             waitUntilPageLoaded();
             String actualString = driver.FindElement(By.XPath(xpath)).Text;
-            try
+            if (!shouldBe)
             {
-                if (!shouldBe)
-                {
-                    //for negative testing
-                    Assert.AreNotEqual(actualString, label);
-                }
-                else
-                {
-                    Assert.AreEqual(actualString, label);
-                }
+                //for negative testing
+                Assert.AreNotEqual(actualString, label);
             }
-            catch(Exception e)
+            else
             {
-                Console.WriteLine(e);
-                if (label2 != null)
-                {
-                    if (!shouldBe)
-                    {
-                        Assert.AreNotEqual(actualString, label2);
-                    }
-                    else
-                    {
-                        Assert.AreEqual(actualString, label2);
-                    }
-                }
+                Assert.AreEqual(actualString, label);
             }
             
+            return this;
+        }
+        public Driver AssertTextContains(string xpath, string label, bool shouldBe = true, string[] ignoreChars = null)
+        {
+            waitUntilPageLoaded();
+            String actualString = driver.FindElement(By.XPath(xpath)).Text;
+            foreach (var character in ignoreChars)
+            {
+                actualString = actualString.Replace(character, " ");
+            }
+            Assert.IsTrue(actualString.Contains(label));
+
             return this;
         }
         public Driver ElementDoesNotExist(string xpath)

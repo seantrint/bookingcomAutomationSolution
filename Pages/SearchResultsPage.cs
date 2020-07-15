@@ -23,7 +23,7 @@ namespace bookingComAutomationSolution.Pages
             return this;
         }
         public SearchResultsPage CheckFirstSearchGridResult(string xpath, string result)
-        
+
         {
             Thread.Sleep(2000);
             pf.AssertText(xpath, result);
@@ -34,17 +34,21 @@ namespace bookingComAutomationSolution.Pages
         {
             pf.CustomScript(Scripts.ClickFirstClassName, PageElementIds.FirstSearchResultLink);
 
-            Thread.Sleep(1000); 
+            Thread.Sleep(1000);
             return this;
         }
-        public SearchResultsPage CheckFilter(string xpath, string filter, bool shouldBe = true, string filter2 = null)
+        public SearchResultsPage CheckFilter(string xpath, string filter, bool shouldBe = true)
         {
             //check for x stars or x-star hotel, if see either one then pass test
             //reason for this is that website recommends properties which can change and be either apartment or hotel
             //checking hotel name does nothing for validating star rating system so need to check star label
-            pf.AssertText(xpath, filter, shouldBe, filter2);
-          
-            
+            pf.AssertText(xpath, filter, shouldBe);
+
+            return this;
+        }
+        public SearchResultsPage CheckFilterContains(string xpath, string filter, string[] ignoreChars, bool shouldBe = true)
+        {
+            pf.TextContains(xpath, filter, ignoreChars, shouldBe);
             return this;
         }
         public SearchResultsPage ClickFilter(string script, int sectionId, int checkBoxId)

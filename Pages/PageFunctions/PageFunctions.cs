@@ -19,9 +19,14 @@ namespace bookingComAutomationSolution.Pages.PageFunctions
             driverclass.ExecuteScript(script, idOrClass);
             return this;
         }
-        public PageFunctions AssertText(string xpath, string label, bool shouldBe = true, string label2 = null)
+        public PageFunctions AssertText(string xpath, string label, bool shouldBe = true)
         {
-            driverclass.AssertTextByXPath(xpath, label, shouldBe, label2);
+            driverclass.AssertTextByXPath(xpath, label, shouldBe);
+            return this;
+        }
+        public PageFunctions TextContains(string xpath, string filter, string[] ignoreChars, bool shouldBe = true)
+        {
+            driverclass.AssertTextContains(xpath, filter, shouldBe, ignoreChars);
             return this;
         }
         public PageFunctions FillInField(string fieldId, string dataToFill)
