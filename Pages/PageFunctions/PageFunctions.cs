@@ -19,9 +19,9 @@ namespace bookingComAutomationSolution.Pages.PageFunctions
             driverclass.ExecuteScript(script, idOrClass);
             return this;
         }
-        public PageFunctions AssertText(string xpath, string label, bool shouldBe = true)
+        public PageFunctions AssertText(string xpath, string label, bool shouldBe = true, string label2 = null)
         {
-            driverclass.AssertTextByXPath(xpath, label, shouldBe);
+            driverclass.AssertTextByXPath(xpath, label, shouldBe, label2);
             return this;
         }
         public PageFunctions FillInField(string fieldId, string dataToFill)
@@ -38,6 +38,11 @@ namespace bookingComAutomationSolution.Pages.PageFunctions
         public PageFunctions ClickCheckbox(string script, int sectionId, int checkBoxId)
         {
             driverclass.ExecuteScriptByInt(script, sectionId, checkBoxId);
+            return this;
+        }
+        public PageFunctions WaitForCheckbox(string script, int sectionId, int checkboxId)
+        {
+            driverclass.waitUntilFieldReady(Scripts.IsCheckboxReady, sectionId, checkboxId);
             return this;
         }
         public PageFunctions SubmitForm(string formId)

@@ -13,7 +13,7 @@ namespace bookingComAutomationSolution
         HomePage hp = new HomePage();
         SearchResultsPage srp = new SearchResultsPage();
         [Test]
-        public void TC_000001_CheckRatingsFunctionality()
+        public void TC_000001_CheckStarRatingLabels()
         {
             chromedriver
                 .startApplication()
@@ -39,25 +39,14 @@ namespace bookingComAutomationSolution
                         Filters.FiveStarLabel,
                         Filters.UnratedLabel
                     }
-                )
-                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.OneStarCheckboxId)
-                .CheckFirstSearchGridResult(PageElementIds.HotelStarRatingXPath, SearchGrid.OneStarResult)
-                .UnClickFilter()
-                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.TwoStarCheckboxId)
-                .CheckFirstSearchGridResult(PageElementIds.HotelStarRatingXPath, SearchGrid.TwoStarHotel)
-                .UnClickFilter()
-                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.ThreeStarCheckboxId)
-                .CheckFirstSearchGridResult(PageElementIds.HotelStarRatingXPath, SearchGrid.ThreeStarResult)
-                .UnClickFilter()
-                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.FourStarCheckboxId)
-                .CheckFirstSearchGridResult(PageElementIds.HotelStarRatingXPath, SearchGrid.FourStarResult)
-                .UnClickFilter()
-                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.FiveStarCheckboxId)
-                .CheckFirstSearchGridResult(PageElementIds.HotelStarRatingXPath, SearchGrid.FiveStarHotel)
-                .UnClickFilter()
-                .ClickFilter(Scripts.ClickFilterCheckbox, PageElementIds.StarRatingSectionId, PageElementIds.UnratedCheckboxId);
+                );
             chromedriver
                 .closeBrowser();
+        }
+        [Test]
+        public void TC_000002_CheckStarRatingFunctionality()
+        {
+
         }
 
     }

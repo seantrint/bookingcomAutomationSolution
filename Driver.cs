@@ -37,12 +37,44 @@ namespace bookingComAutomationSolution
 
             return this;
         }
+        public Driver waitUntilFieldReady(string script, int param1 = 0, int param2 = 0, int param3 = 0)
+        {
+            int i = 0;
+            bool fieldExists = false;
+            while(i < 6000)
+            {
+                fieldExists = ExecuteScriptAndReturn(script, param1, param2, param3);
+                if (fieldExists == true)
+                {
+                    break;
+                }
+                i++;
+            }
+            return this;
+        }
         public Driver ExecuteScript(string script, string param1 = null, string param2 = null, string param3 = null)
         {
             waitUntilPageLoaded();
             ((IJavaScriptExecutor)driver).ExecuteScript(String.Format(script, param1, param2, param3));
             waitUntilPageLoaded();
             return this;
+        }
+        public bool ExecuteScriptAndReturn(string script, int param1 = 0, int param2 = 0, int param3 = 0)
+        {
+            bool returnValue = false;
+            try
+            {
+                waitUntilPageLoaded();
+                ExecuteScriptByInt(script, param1, param2);
+                waitUntilPageLoaded();
+                returnValue = true;
+            }
+            catch(Exception e)
+            {
+                returnValue = false;
+            }
+            return returnValue;
+
         }
         public Driver ExecuteScriptByInt(string script, int param1 = 0, int param2 = 0, int param3 = 0)
         {
@@ -51,19 +83,38 @@ namespace bookingComAutomationSolution
             waitUntilPageLoaded();
             return this;
         }
-        public Driver AssertTextByXPath(string xpath, string label, bool shouldBe = true)
+        public Driver AssertTextByXPath(string xpath, string label, bool shouldBe = true, string label2 = null)
         {
             waitUntilPageLoaded();
             String actualString = driver.FindElement(By.XPath(xpath)).Text;
-            if (!shouldBe)
+            try
             {
-                //for negative testing
-                Assert.AreNotEqual(actualString, label);
+                if (!shouldBe)
+                {
+                    //for negative testing
+                    Assert.AreNotEqual(actualString, label);
+                }
+                else
+                {
+                    Assert.AreEqual(actualString, label);
+                }
             }
-            else
+            catch(Exception e)
             {
-                Assert.AreEqual(actualString, label);
+                Console.WriteLine(e);
+                if (label2 != null)
+                {
+                    if (!shouldBe)
+                    {
+                        Assert.AreNotEqual(actualString, label2);
+                    }
+                    else
+                    {
+                        Assert.AreEqual(actualString, label2);
+                    }
+                }
             }
+            
             return this;
         }
         public Driver ElementDoesNotExist(string xpath)

@@ -15,6 +15,7 @@ namespace bookingComAutomationSolution.TestData
         public const string PickableDate = "bui-calendar__date";
 
         //Search Results Page
+        public const string FirstSearchResultLink = "sr-hotel__name";
         public const string LowestPriceFirstButton = " sort_category   sort_price ";
         public const string SelectedCheckBox = "filteroptions filter_selected";
         public const string HotelStarRatingXPath = "/html/body/div[6]/div/div[3]/div[1]/div[1]/div[7]/div[3]/div[1]/div/div[1]/div[2]/div[1]/div[1]/div[1]/span/i/span";

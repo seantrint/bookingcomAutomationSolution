@@ -33,7 +33,7 @@ namespace bookingComAutomationSolution.Pages
 
             for (int i = 0; i<= timesToPress; i++)
             {
-                pf.CustomScript(Scripts.ClickCalendarNextPrevious, button);
+                pf.CustomScript(Scripts.ClickFirstClassName, button);
             }
             
             Thread.Sleep(500); //checking page ready flag will not work for dynamic inner page elements
