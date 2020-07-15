@@ -36,7 +36,6 @@ namespace bookingComAutomationSolution.TestData
         public const int FifthStarCheckboxId = 4;
         public const int UnratedCheckboxId = 5;
 
-        ///html/body/div[6]/div/div[3]/div[1]/div[2]/div[1]/div[5]/form/fieldset/div[1]/div/div[16]/div[2]/a[2]/label/div/span[1]
         public const string SpaLabelXPath = "/html/body/div[6]/div/div[3]/div[1]/div[2]/div[1]/div[5]/form/fieldset/div[1]/div/div[9]/div[2]/a[2]/label/div/span[1]";
         public const int FunThingsSectionId = 7;
         public const int SpaCheckboxId = 1;

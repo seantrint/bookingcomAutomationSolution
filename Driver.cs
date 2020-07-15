@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 using System.Threading;
 using NUnit.Framework;
@@ -11,7 +12,7 @@ namespace bookingComAutomationSolution
 {
     public class Driver
     {
-        string path = "C:/Users/Sean/Desktop/projects/testautomation/bookingComAutomationSolution/Lib";
+        string path = ConfigurationManager.AppSettings["ChromeDriver"];
         public static IWebDriver driver = new ChromeDriver();
         public Driver MaximizeWindow()
         {
@@ -21,7 +22,7 @@ namespace bookingComAutomationSolution
         }
         public Driver startApplication()
         {
-            driver.Url = "https://www.booking.com"; //get this from app.config later
+            driver.Url = ConfigurationManager.AppSettings["ApplicationUrl"];
             return this;
         }
         [TearDown]
