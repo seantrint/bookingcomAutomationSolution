@@ -1,0 +1,6 @@
+Main - Test class, this contains the tests. Tests cover each star rating and spa filter (labels + functionality). In tests we use data keys as parameters for our methods.
+Driver - Contains generic methods that execute javascript against the specified webpage (in this case booking.com). Parameters can be passed in with methods so they can be reused.
+Page functions - Contains methods to execute the generic driver class methods in different ways. These are also generic as the parameter values derive from the classes before it.
+Home Page, Search Results Page - Contains specific methods for specific pages and makes calls to the page functions class so we don't have to re-initialize driver object.
+Test Data folder - These files have the test data. Test data can be shared among many tests, so 10 tests can use 1 data key and potentially in future can fix 10 test failures by updating 1 data key.
+App.config - Specifies the application url we want to test and the location of the chrome driver
